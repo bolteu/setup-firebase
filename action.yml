@@ -1,10 +1,14 @@
 name: 'Setup firebase'
 description: 'Installs firebase on runner'
 inputs:
-  install-dir:  # id of input
+  install-path:  # id of input
     description: 'Absolute path to where the Firebase CLI binary should be saved. Defaults to /usr/local/bin/firebase'
     required: false
-    default: ''
+    default: '/usr/local/bin'
+  version:
+    description: ''
+    required: false
+    default: 'latest'
 outputs:
   time: # id of output
     description: 'The time action is finished to do its job'
