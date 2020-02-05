@@ -1,0 +1,32 @@
+{
+  "name": "setup-firebase",
+  "version": "0.0.1",
+  "private": false,
+  "description": "Analyse all merge commits in PR and creates change-notes based on child PR's names",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "ncc build src/index.ts -m"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bolteu/setup-firebase"
+  },
+  "keywords": [
+    "actions",
+    "node",
+    "setup"
+  ],
+  "author": "Pavlo Pakholka",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/exec": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.13",
+    "@types/node": "^12.0.4",
+    "jest": "^24.8.0",
+    "jest-circus": "^24.7.1",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.1"
+  }
+}

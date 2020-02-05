@@ -1,0 +1,15 @@
+name: 'Setup firebase'
+description: 'Installs firebase on runner'
+inputs:
+  install-dir:  # id of input
+    description: 'Absolute path to where the Firebase CLI binary should be saved. Defaults to /usr/local/bin/firebase'
+    required: false
+    default: ''
+outputs:
+  time: # id of output
+    description: 'The time action is finished to do its job'
+  firebase-binary-path:
+    description: 'Absolute path to where the Firebase CLI binary was saved'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
