@@ -30,12 +30,26 @@ const downloadFile = (async (url:string, path:string) => {
 
 async function run() {
   try {
+    let machine;
+
+    switch(process.platform) {
+      case 'darwin':
+        machine = 'macos';
+        break;
+      case 'linux':
+        machine = 'linux';
+        break;
+      default:
+        core.setFailed("Firebase.tools can only be installed on either linux or macos. ");
+        return;
+    }
+
     const binaryInstallPath:string = nomalizePath(core.getInput('install-path'));
     const binaryInstallVersion:string = core.getInput('version');
 
     const binaryPath = `${binaryInstallPath}/firebase`;
 
-    const downloadUrl = `https://firebase.tools/bin/linux/${binaryInstallVersion}`;
+    const downloadUrl = `https://firebase.tools/bin/${machine}/${binaryInstallVersion}`;
 
     await downloadFile(downloadUrl, binaryPath);
 

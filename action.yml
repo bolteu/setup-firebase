@@ -6,7 +6,7 @@ inputs:
     required: false
     default: '/usr/local/bin'
   version:
-    description: ''
+    description: 'Version of firebase.tools CLI you want to install. Default is "latest"'
     required: false
     default: 'latest'
 outputs:
