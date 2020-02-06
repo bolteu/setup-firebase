@@ -2,11 +2,17 @@ import * as exec from '@actions/exec';
 import * as core from '@actions/core';
 import fetch from 'node-fetch';
 import fs from 'fs';
+import normalize from 'normalize-path';
 
 const getEnv = (variable:string):string => {
   const key = variable.replace("$", "");
   return `${process.env[key]}`
 } 
+
+const nomalizePath = (path: string): string => {
+  const nonEnvPath = path.replace(/^\$[A-Z_a-z]+/g, x => getEnv(x));
+  return normalize(nonEnvPath);
+}
 
 const downloadFile = (async (url:string, path:string) => {
   const res = await fetch(url);
@@ -24,7 +30,7 @@ const downloadFile = (async (url:string, path:string) => {
 
 async function run() {
   try {
-    const binaryInstallPath:string = core.getInput('install-path');
+    const binaryInstallPath:string = nomalizePath(core.getInput('install-path'));
     const binaryInstallVersion:string = core.getInput('version');
 
     const binaryPath = `${binaryInstallPath}/firebase`;

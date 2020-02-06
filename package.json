@@ -23,8 +23,10 @@
     "@actions/exec": "^1.0.1",
     "@actions/io": "^1.0.2",
     "@types/node-fetch": "^2.5.4",
+    "@types/normalize-path": "^3.0.0",
     "fs": "0.0.1-security",
-    "node-fetch": "^2.6.0"
+    "node-fetch": "^2.6.0",
+    "normalize-path": "^3.0.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
