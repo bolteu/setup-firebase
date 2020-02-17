@@ -1,6 +1,6 @@
 import * as exec from '@actions/exec';
 import * as core from '@actions/core';
-import fetch from 'node-fetch';
+import download from 'download';
 import fs from 'fs';
 import normalize from 'normalize-path';
 
@@ -13,20 +13,6 @@ const nomalizePath = (path: string): string => {
   const nonEnvPath = path.replace(/^\$[A-Z_a-z]+/g, x => getEnv(x));
   return normalize(nonEnvPath);
 }
-
-const downloadFile = (async (url:string, path:string) => {
-  const res = await fetch(url);
-  const fileStream = fs.createWriteStream(path);
-  await new Promise((resolve, reject) => {
-      res.body.pipe(fileStream);
-      res.body.on("error", (err: Error) => {
-        reject(err);
-      });
-      fileStream.on("finish", function() {
-        resolve();
-      });
-    });
-});
 
 async function run() {
   try {
@@ -51,7 +37,7 @@ async function run() {
 
     const downloadUrl = `https://firebase.tools/bin/${machine}/${binaryInstallVersion}`;
 
-    await downloadFile(downloadUrl, binaryPath);
+    await download(downloadUrl, binaryInstallPath, { "filename": "firebase" });
 
     console.log(`File was downloaded to ${binaryPath}. Setting up execution permissons`);
 
