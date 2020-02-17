@@ -22,8 +22,10 @@
     "@actions/core": "^1.2.2",
     "@actions/exec": "^1.0.1",
     "@actions/io": "^1.0.2",
+    "@types/download": "^6.2.4",
     "@types/node-fetch": "^2.5.4",
     "@types/normalize-path": "^3.0.0",
+    "download": "^7.1.0",
     "fs": "0.0.1-security",
     "node-fetch": "^2.6.0",
     "normalize-path": "^3.0.0"
