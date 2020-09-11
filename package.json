@@ -27,7 +27,7 @@
     "@types/normalize-path": "^3.0.0",
     "download": "^7.1.0",
     "fs": "0.0.1-security",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "normalize-path": "^3.0.0"
   },
   "devDependencies": {
